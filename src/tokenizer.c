@@ -126,24 +126,7 @@ int count_tokens(char *str) {
     return tokens;
   }
 
-  /*
-char **tokenize(char *str) {
-  char **tokens;
-  int count, i;
-  count = count_tokens(str);
-  tokens = (char **) malloc((count + 1) * sizeof(char *));
-  
-  for (i = 0; i < count; i++) {
-    char *endWord;
-    endWord = token_terminator(str = token_start(str));
-    tokens[i] = copy_str(str, endWord - str);
-    str = endWord;
-  }
-
-  tokens[i] = NULL;
-  return tokens;
-}
-*/
+ 
     
 /* Prints all tokens. */
   void print_tokens(char **tokens) {
