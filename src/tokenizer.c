@@ -10,7 +10,7 @@
    ('\t' or ' ').  
    Zero terminators are not printable (therefore false) */
 int space_char(char c) {
-  return c == '\t' || c == ' ';
+  return c == '\t' || c == ' ' ? 1 : 0;
 }
 
 
@@ -19,7 +19,7 @@ int space_char(char c) {
    character (not tab or space).  
    Zero terminators are not printable (therefore false) */
 int non_space_char(char c) {
-  return c != '\t' && c != ' ';
+  return !space_char(c);
 }
 
 
@@ -28,19 +28,14 @@ int non_space_char(char c) {
    space-separated token in zero-terminated str.  Return a zero pointer if 
    str does not contain any tokens. */
 char *token_start(char *str) {
-  if (str == NULL || *str == '\0')
-    return NULL;
-
-  while (non_space_char(*str)) {
+  while (*str != '\0') {
+    if (non_space_char(*str)) {
+      return str;
+    }
     str++;
   }
-
-  if (*str == '\0') {
-    return NULL;
-  }
-
+	
   return str;
-  
 }
 
 
