@@ -27,13 +27,12 @@ void add_history(List *list, char *str) {
   char *s = copy_str(str, i);
   int count = 1;
   Item *curr = list -> root;
+  curr->id = 0;
 
   if (curr == NULL) {
     curr = malloc(sizeof(Item));
-    curr->id = 0;
-    curr->str = s;
-    curr->next = NULL;
-    list->root = curr;
+    list->root->id =0;
+    list->root = s;
     return;
   }
 
